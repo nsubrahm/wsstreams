@@ -1,0 +1,16 @@
+{
+    "ws" : {
+      "port" : 3000,
+      "path" : "/demo"
+    },
+    "mqtt" : {
+      "host" : "test.mosquitto.org",
+      "port" : 1883,
+      "topics" : ["/demo/demo/1"],
+      "clientIdPrefix" : "magic-box-"
+    },
+    "zmq" : {
+      "host" : "tcp://127.0.0.1",
+      "port" : 2151
+    }
+  }
