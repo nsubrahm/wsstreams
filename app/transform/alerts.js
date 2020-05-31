@@ -4,8 +4,8 @@ function detectAlerts(chunk, encoding, done) {
   let m = JSON.parse(chunk.toString())
   m.message.alerts = [
     {
-      "paramName": "",
-      "paramValue": 0
+      "paramName": "demo",
+      "paramValue": 30.09
     }
   ]
   this.push(JSON.stringify(m))
