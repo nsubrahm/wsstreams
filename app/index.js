@@ -23,8 +23,6 @@ const options = {
 }
 
 const p1 = new stream.PassThrough()
-const p2 = new stream.PassThrough()
-
 const t1 = new stream.Transform()
 t1._transform = alerts.detectAlerts
 
@@ -39,15 +37,15 @@ let zmqPubOptions = { socketUrl : options.zmq.host + ':' + options.zmq.port }
 
 const ms = new mqttSub.MqttSubscriber({
   mqtt: mqttSubOptions,
-  passthru: p1
+  passthru: t1
 })
 
 const zp = new zmqPub.ZeromqPublisher({
   zmq: zmqPubOptions,
-  passthru: p2
+  passthru: p1
 })
 
 zp.connect()
 zp.publish()
 
-p1.pipe(t1).pipe(p2)
+t1.pipe(p1)
